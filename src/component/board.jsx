@@ -379,9 +379,11 @@ function Board({ socket }) {
           cardDrawnBy === "player1Deck" ? "player2Deck" : "player1Deck";
         newObjectToEmit[otherDeckName] = updateOpponent();
       }
+      playSound('draw');
       socket.emit("updateGameState", newObjectToEmit);
     } else {
       // If not match any add to current player deck, remove from drawpile and change turn
+      playSound('draw');
       socket.emit("updateGameState", {
         turn: opponentId,
         drawCardPile: copiedDrawCardPile,
@@ -540,7 +542,6 @@ function Board({ socket }) {
           <div
             onClick={() => {
               onCardDrawnHandler(drawCardPile[0]);
-              playSound('draw');
             }}
           >
             <DrawCard />
