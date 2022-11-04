@@ -130,14 +130,7 @@ const Game = () => {
     }
   };
 
-  useEffect(() => {
-    console.log('dang chay sound')
-    if (winner && user._id === winner) {
-      new Audio(winnerSound).play();
-    } else if (winner && user.id !== winner) {
-      new Audio(loseSound).play();
-    }
-  },[]);
+  
   return (
     <>
       {users.find((user) => user._id === winner) && (

@@ -5,8 +5,8 @@ import Card from "../ass/uno-wp/wp1.png";
 import Button from '@mui/material/Button';
 import { useSelector } from "react-redux";
 
-import winnerSou from "../ass/sounds/winner.mp3";
-import loseSou from "../ass/sounds/game-over-sound.mp3";
+import winnerSound from "../ass/sounds/winner.mp3";
+import loseSound from "../ass/sounds/game-over-sound.mp3";
 
 const style = {
   position: "absolute",
@@ -28,7 +28,17 @@ export default function Winner({onRestart, handleLeave}) {
     // onRestart();
   };
   const { users } = useSelector(state => state.room);
+  const { user } = useSelector((state) => state.user);
   const { winner } = useSelector(state => state.game);
+
+  useEffect(() => {
+    console.log('dang chay sound')
+    if (winner && user._id === winner) {
+      new Audio(winnerSound).play();
+    } else if (winner && user.id !== winner) {
+      new Audio(loseSound).play();
+    }
+  },[]);
 
   return (
     <>
