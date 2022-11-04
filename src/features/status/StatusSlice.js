@@ -1,7 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     statusIndex: "login"
@@ -23,11 +20,6 @@ const statusSlice = createSlice({
             state.statusIndex = "logined"
         }
     },
-    // extraReducers: (builder) => {
-    //     builder
-        
-            
-    // }
 })
 
 export const { login, signin, guest, logined } = statusSlice.actions;
