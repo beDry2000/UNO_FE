@@ -30,9 +30,9 @@ export default function Winner({ onRestart, handleLeave }) {
   const { users } = useSelector(state => state.room);
   const { user } = useSelector((state) => state.user);
   const { winner } = useSelector(state => state.game);
-  if (winner && user._id === winner) {
+  if (user._id === winner) {
     new Audio(winnerSound).play();
-  } else if (winner && user.id !== winner) {
+  } else if (user.id !== winner) {
     new Audio(loseSound).play();
   }
 
