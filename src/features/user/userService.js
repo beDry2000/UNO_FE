@@ -29,7 +29,9 @@ const createGuest = async (userData) => {
 // Xoa thang guest khi no log out
 const deleteUser = async (id) => {
     const response = await axios.delete(`${API_URL}del/${id}`);
-
+    if (response.data) {
+        localStorage.removeItem('user')
+    }
     return response.data;
 }
 

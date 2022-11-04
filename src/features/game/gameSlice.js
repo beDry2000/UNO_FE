@@ -25,7 +25,6 @@ const gameSlice = createSlice({
         resetGame: () => initialState,
         initializeGame: (_, { payload }) => payload,
         updateGame: (state, { payload }) => {
-            console.log('State game moi ', payload);
             const newState = {
                 ...state,
                 ...payload
@@ -35,22 +34,15 @@ const gameSlice = createSlice({
         },
         updateMessage: (state, { payload }) => {
             if (!hasSent) {
-                console.log('Da gui chua', hasSent)
                 state.messages.push(payload);
                 hasSent = true;
             } else {
-                console.log('Da gui roi nen khong update', hasSent);
                 hasSent = false;
             }
-        },
-        setAutoCount: (state, {number}) => {
-            console.log('AutoCount dang chay', number)
-            state.autoCount = number;
-            console.log('AutoCount dang chay', state.autoCount)
         }
     }
 })
 
-export const { resetGame, initializeGame, updateGame, updateMessage, setAutoCount } = gameSlice.actions;
+export const { resetGame, initializeGame, updateGame, updateMessage } = gameSlice.actions;
 
 export default gameSlice.reducer;

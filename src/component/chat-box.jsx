@@ -16,12 +16,9 @@ function ChatBox({ onSendMessage }) {
   const [count, setCount] = useState(0);
   const gameStat = useSelector((state) => state.game);
   const {turn} = gameStat;
-  console.log(user);
-  console.log(turn);
   useEffect(() => {
     if (messages.length > 0) {
       setCount((prev) => prev + 1);
-      console.log(chatBox);
       if (chatBox.current) {
         chatBox.current.scrollTop = chatBox.current.scrollHeight;
       }
