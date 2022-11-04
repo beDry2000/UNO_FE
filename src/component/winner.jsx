@@ -35,12 +35,6 @@ export default function Winner({onRestart, handleLeave}) {
 
   return (
     <>
-      {/* <Box sx={{ "& > :not(style)": { m: 1 } }} onClick={() => console.log('Nut de mo modal')}>
-        <Fab color="primary" aria-label="add">
-          <FormatListBulletedIcon sx={{ fontSize: "2rem" }} />
-        </Fab>
-      </Box> */}
-
       <Modal
         open={open}
         onClose={handleClose}

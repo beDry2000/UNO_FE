@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 
-function MainPlayer({ onCardPlayedHandler, onPressUno }) {
+function MainPlayer({ onCardPlayedHandler }) {
 
   const gameStat = useSelector((state) => state.game);
   const { deckOfPlayers } = gameStat;
   const { user } = useSelector(state => state.user);
-  console.log('Card of current use', gameStat[deckOfPlayers[user.id]]);
 
   return (
     <>

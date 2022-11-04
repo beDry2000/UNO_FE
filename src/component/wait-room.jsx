@@ -57,7 +57,6 @@ const Game = () => {
   // Listeners of socket instance
   useEffect(() => {
     socket.on("initGameState", (gameState) => {
-      console.log("Start the Game", gameState);
       dispatch(initializeGame(gameState));
     });
 
@@ -65,14 +64,12 @@ const Game = () => {
       dispatch(updateGame(gameState));
     });
     socket.on("roomData", (payload) => {
-      console.log("Got room data", payload);
       dispatch(updateUsers(payload));
     });
   }, []);
   const handleLeave = () => {
     dispatch(leaveRoom());
     const newUsers = users.filter(({ _id }) => user.id !== _id);
-    console.log("New users:", newUsers);
     socket.emit("leaving", newUsers);
     navigate("/");
   };

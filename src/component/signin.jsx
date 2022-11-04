@@ -39,10 +39,8 @@ function SignIn({setStatusIndex}) {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(formData);
 
   const handleRegister = () => {
-    console.log(formData);
     dispatch(register(formData));
   };
 

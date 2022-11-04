@@ -18,7 +18,6 @@ function EnemyCard() {
   const gameStat = useSelector((state) => state.game);
   const { turn, currentColor } = gameState;
   const { user } = useSelector((state) => state.user);
-  // console.log(opponentDeck)
 
   return (
     <>

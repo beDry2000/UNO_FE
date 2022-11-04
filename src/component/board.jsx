@@ -461,7 +461,7 @@ function Board({ socket }) {
 
   const playSound = (soundName) => {
     socket.emit('playSound', { name: soundName }, (res) => {
-      console.log(res);
+      console.log('Chay Am Thanh', res);
       if (res.name === 'uno') {
         unoSound();
       } else if (res.name === 'draw') {

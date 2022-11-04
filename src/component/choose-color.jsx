@@ -18,8 +18,6 @@ const style = {
   p: 1,
 };
 const ChooseColor = ({ popUp, onClosePopUp, card }) => {
-  console.log("Wild card drawn/ played", card);
-  console.log(popUp);
 
   return (
     <>

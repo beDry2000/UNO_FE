@@ -54,15 +54,6 @@ function CreateRoom() {
     dispatch(resetGame());
   };
 
-  const handleLogout = () => {
-    if (user.isGuest) {
-      dispatch(deleteUser());
-    }
-    dispatch(resetGame());
-    dispatch(logout());
-    navigate("/");
-  };
-
 
   return (
     <>
