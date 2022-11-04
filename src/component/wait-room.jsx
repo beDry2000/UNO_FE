@@ -141,7 +141,7 @@ const Game = () => {
         new Audio(loseSound).play();
       }
     }
-  }, [winner]);
+  }, winner);
 
 
   return (

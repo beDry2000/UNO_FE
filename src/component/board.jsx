@@ -77,7 +77,6 @@ function Board({ socket }) {
     });
 
     socket.on('playSound', (payload) => {
-      console.log(payload);
       playEffect(payload);
     })
 
