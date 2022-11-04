@@ -137,7 +137,7 @@ const Game = () => {
     } else if (winner && user.id !== winner) {
       new Audio(loseSound).play();
     }
-  },[winner]);
+  },[]);
   return (
     <>
       {users.find((user) => user._id === winner) && (
