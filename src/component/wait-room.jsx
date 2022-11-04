@@ -172,7 +172,6 @@ const Game = () => {
       ) : (
         <Board socket={socket} handleStart={handleStart} />
       )}
-      {/* <ChatBox onSendMessage={sendMessage} /> */}
     </>
   );
 };
