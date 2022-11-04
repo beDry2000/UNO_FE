@@ -21,12 +21,6 @@ const ChooseColor = ({ popUp, onClosePopUp, card }) => {
 
   return (
     <>
-      {/* <Box sx={{ '& > :not(style)': { m: 1 } }} onClick={handleOpen}>
-                <Fab color="primary" aria-label="add">
-                    <FormatListBulletedIcon sx={{ fontSize: '2rem' }} />
-                </Fab>
-            </Box>
-          */}
       <Modal
         open={popUp}
         onClose={() => console.log("Dang close PopUp")}

@@ -131,6 +131,8 @@ const Game = () => {
   };
 
   useEffect(() => {
+    console.log('Dang co winner');
+    new Audio(winnerSound).play();
     if (winner) {
       console.log('Co winner')
       if (user._id === winner) {
@@ -141,7 +143,7 @@ const Game = () => {
         new Audio(loseSound).play();
       }
     }
-  }, winner);
+  }, [winner]);
 
 
   return (
