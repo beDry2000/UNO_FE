@@ -17,7 +17,8 @@ import { useState } from "react";
 import Board from "./board";
 import ChatBox from "./chat-box";
 
-const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://uno-fe.vercel.app:5000";
+const ENDPOINT = process.env.REACT_APP_BASE_URL;
 let socket;
 
 const Game = () => {
