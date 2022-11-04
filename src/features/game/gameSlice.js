@@ -29,7 +29,6 @@ const gameSlice = createSlice({
                 ...state,
                 ...payload
             }
-            console.log(newState);
             return newState;
         },
         updateMessage: (state, { payload }) => {

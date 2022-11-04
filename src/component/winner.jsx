@@ -1,15 +1,12 @@
 import { useState } from "react";
-
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import Fab from "@mui/material/Fab";
 import Card from "../ass/uno-wp/wp1.png";
 import Button from '@mui/material/Button';
 import { useSelector } from "react-redux";
 
-import winnerSou from "../ass/sounds/winner.mp3"
-import loseSou from "../ass/sounds/game-over-sound.mp3"
+import winnerSou from "../ass/sounds/winner.mp3";
+import loseSou from "../ass/sounds/game-over-sound.mp3";
 
 const style = {
   position: "absolute",

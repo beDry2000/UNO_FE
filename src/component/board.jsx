@@ -54,20 +54,8 @@ function Board({ socket }) {
     new Audio(soundThrow).play();
   }, playedCardsPile);
 
-  const drawCardDesk = () => {
-    new Audio(drawCardFromDesk).play();
-  };
   const errSound = () => {
     new Audio(errorSound).play();
-  };
-
-  const unoSound = () => {
-    new Audio(uno).play();
-  };
-
-
-  const clockSound = () => {
-    new Audio(tiktak).play();
   };
 
   // Listeners of socket instance

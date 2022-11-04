@@ -16,6 +16,8 @@ import io from "socket.io-client";
 import { useState } from "react";
 import Board from "./board";
 import ChatBox from "./chat-box";
+import winnerSound from "../ass/sounds/winner.mp3"
+import loseSound from "../ass/sounds/game-over-sound.mp3"
 
 // const ENDPOINT = "https://uno-fe.vercel.app:5000";
 const ENDPOINT = process.env.REACT_APP_BASE_URL;
@@ -127,6 +129,14 @@ const Game = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (winner && user._id === winner) {
+      new Audio(winnerSound).play();
+    } else if (winner && user.id !== winner) {
+      new Audio(loseSound).play();
+    }
+  },[winner]);
   // const sendMessage = (mess) => {
   //   if (mess) {
   //     socket.emit("message", { message: mess, userName: user.userName });
