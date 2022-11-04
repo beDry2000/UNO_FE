@@ -130,7 +130,20 @@ const Game = () => {
     }
   };
 
-  
+  useEffect(() => {
+    if (winner) {
+      console.log('Co winner')
+      if (user._id === winner) {
+        console.log('Day la winner');
+        new Audio(winnerSound).play();
+      } else if (user.id !== winner) {
+        console.log('Day la loser');
+        new Audio(loseSound).play();
+      }
+    }
+  }, [winner]);
+
+
   return (
     <>
       {users.find((user) => user._id === winner) && (
@@ -147,7 +160,7 @@ const Game = () => {
                 <h3>Mã phòng: {roomCode}</h3>
               </div>
             </Tooltip>
-            <div style={{width: "90px"}}></div>
+            <div style={{ width: "90px" }}></div>
           </div>
           <div className="wait-member-aria">
             {users.map((user) => (
