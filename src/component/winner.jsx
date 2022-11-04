@@ -20,7 +20,7 @@ const style = {
   height: "80vh",
   p: 1,
 };
-export default function Winner({onRestart, handleLeave}) {
+export default function Winner({ onRestart, handleLeave }) {
   const [open, setOpen] = useState(true);
 
   const handleClose = () => {
@@ -30,15 +30,11 @@ export default function Winner({onRestart, handleLeave}) {
   const { users } = useSelector(state => state.room);
   const { user } = useSelector((state) => state.user);
   const { winner } = useSelector(state => state.game);
-
-  useEffect(() => {
-    console.log('dang chay sound')
-    if (winner && user._id === winner) {
-      new Audio(winnerSound).play();
-    } else if (winner && user.id !== winner) {
-      new Audio(loseSound).play();
-    }
-  },[]);
+  if (winner && user._id === winner) {
+    new Audio(winnerSound).play();
+  } else if (winner && user.id !== winner) {
+    new Audio(loseSound).play();
+  }
 
   return (
     <>
@@ -57,12 +53,12 @@ export default function Winner({onRestart, handleLeave}) {
           </div>
           <div className="after-win">
             <Button className="width-40" variant="contained" color="success"
-            onClick={onRestart}
+              onClick={onRestart}
             >
               CHƠI TIẾP
             </Button>
             <Button className="width-40" variant="contained" color="error"
-            onClick={handleLeave}
+              onClick={handleLeave}
             >
               THOÁT
             </Button>
