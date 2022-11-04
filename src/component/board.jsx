@@ -102,7 +102,7 @@ function Board({ socket }) {
     if (sound.name === 'uno') {
       new Audio(uno).play();
     } else if (sound.name === 'draw') {
-      new Audio(uno).play();
+      new Audio(drawCardFromDesk).play();
     }
   }
   const handleLeave = () => {
