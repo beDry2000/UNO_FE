@@ -69,7 +69,6 @@ const roomSlice = createSlice({
             state.users = payload.users;
         },
         setCurrentUser: (state, {payload}) => {
-            console.log('SetCurrentUser', payload)
             state.currentUser = payload;
         }
     },

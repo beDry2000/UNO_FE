@@ -53,7 +53,7 @@ function Board({ socket }) {
   useEffect(() => {
     new Audio(soundThrow).play();
   }, playedCardsPile);
-  
+
   const drawCardDesk = () => {
     new Audio(drawCardFromDesk).play();
   };
@@ -90,7 +90,7 @@ function Board({ socket }) {
 
     socket.on('playSound', (payload) => {
       console.log(payload);
-      playEffect();
+      playEffect(payload);
     })
 
     socket.on("leaveUser", () => {

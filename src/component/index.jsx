@@ -9,11 +9,7 @@ import Header from "./header";
 function Index() {
   const { user } = useSelector((state) => state.user);
   const [statusIndex, setStatusIndex] = useState("login");
-  // logi
-  // register
-  // guest
-
-  console.log(statusIndex);
+  
   return (
     <>
       <div className="bg">
