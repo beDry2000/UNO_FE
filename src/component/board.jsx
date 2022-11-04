@@ -53,6 +53,7 @@ function Board({ socket }) {
   useEffect(() => {
     new Audio(soundThrow).play();
   }, playedCardsPile);
+  
   const drawCardDesk = () => {
     new Audio(drawCardFromDesk).play();
   };
@@ -87,11 +88,23 @@ function Board({ socket }) {
       dispatch(updateUsers(payload));
     });
 
+    socket.on('playSound', (payload) => {
+      console.log(payload);
+      playEffect();
+    })
+
     socket.on("leaveUser", () => {
       dispatch(resetGame());
     });
   }, []);
 
+  const playEffect = (sound) => {
+    if (sound.name === 'uno') {
+      new Audio(uno).play();
+    } else if (sound.name === 'draw') {
+      new Audio(uno).play();
+    }
+  }
   const handleLeave = () => {
     dispatch(leaveRoom());
     const newUsers = users.filter(({ _id }) => user.id !== _id);
@@ -462,14 +475,7 @@ function Board({ socket }) {
   }, [turn]);
 
   const playSound = (soundName) => {
-    socket.emit('playSound', { name: soundName }, (res) => {
-      console.log('Chay Am Thanh', res);
-      if (res.name === 'uno') {
-        unoSound();
-      } else if (res.name === 'draw') {
-        drawCardDesk();
-      }
-    })
+    socket.emit('playSound', { name: soundName });
   }
 
   return (
