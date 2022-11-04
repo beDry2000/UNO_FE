@@ -138,11 +138,6 @@ const Game = () => {
       new Audio(loseSound).play();
     }
   },[winner]);
-  // const sendMessage = (mess) => {
-  //   if (mess) {
-  //     socket.emit("message", { message: mess, userName: user.userName });
-  //   }
-  // };
   return (
     <>
       {users.find((user) => user._id === winner) && (
