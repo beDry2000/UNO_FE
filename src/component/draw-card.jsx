@@ -1,11 +1,6 @@
-import {useState} from "react";
 import Card from "../ass/card-back.png";
 import Tooltip from "@mui/material/Tooltip";
-import { useSelector } from "react-redux";
-import ChooseColor from "./choose-color";
 function DrawCard() {
-  // const {drawCardPile} = useSelector(state => state.game);
-  // console.log(drawCardPile[0])
 
   return (
     <>

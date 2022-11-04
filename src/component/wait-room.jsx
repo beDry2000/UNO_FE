@@ -49,9 +49,6 @@ const Game = () => {
 
     socket.emit("join", roomCode);
     return () => {
-      // const newUsers = users.filter(({ _id }) => user.id !== _id);
-      // console.log("New users:", newUsers);
-      // socket.emit("leaving", newUsers);
       socket.disconnect();
       socket.off();
     };
@@ -72,7 +69,6 @@ const Game = () => {
       dispatch(updateUsers(payload));
     });
   }, []);
-
   const handleLeave = () => {
     dispatch(leaveRoom());
     const newUsers = users.filter(({ _id }) => user.id !== _id);

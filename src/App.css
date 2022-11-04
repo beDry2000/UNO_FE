@@ -586,6 +586,7 @@ body {
 }
 .main-player-chat{
   margin-right: 20px;
+  margin-bottom: 10px;
   max-width: 220px;
   width: auto;
   background-color: rgb(0, 145, 225);

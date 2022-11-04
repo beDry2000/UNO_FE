@@ -63,15 +63,12 @@ function Board({ socket }) {
   const unoSound = () => {
     new Audio(uno).play();
   };
-  // useEffect(()=>{
-  //   drawCardDesk()
-  // }, onCardDrawnHandler)
+
+
   const clockSound = () => {
     new Audio(tiktak).play();
   };
-  useEffect(() => {
-    // clockSound()
-  }, turn);
+
   // Listeners of socket instance
   useEffect(() => {
     socket.on("initGameState", (gameState) => {
@@ -393,7 +390,7 @@ function Board({ socket }) {
     }
   };
 
-  const [sec, setSec] = useState(10);
+  const [sec, setSec] = useState(20);
 
   const isChooseColor = (cardType) => {
     const chooseColorType = ["wild", "draw4wild"];
@@ -450,7 +447,7 @@ function Board({ socket }) {
       setSec((pre) => pre - 1);
     }, 1000);
     if (sec === 0) {
-      setSec(10);
+      setSec(20);
     }
     return () => {
       clearInterval(time);
@@ -459,8 +456,20 @@ function Board({ socket }) {
 
   // Recount when turn changes
   useEffect(() => {
-    setSec(10);
+    setSec(20);
   }, [turn]);
+
+  const playSound = (soundName) => {
+    socket.emit('playSound', { name: soundName }, (res) => {
+      console.log(res);
+      if (res.name === 'uno') {
+        unoSound();
+      } else if (res.name === 'draw') {
+        drawCardDesk();
+      }
+    })
+  }
+
   return (
     <>
       <div className="bg-play" />
@@ -531,14 +540,16 @@ function Board({ socket }) {
           <div
             onClick={() => {
               onCardDrawnHandler(drawCardPile[0]);
+              playSound('draw');
             }}
           >
-            <DrawCard socket={socket} onCardDrawnHandler={onCardDrawnHandler} />
+            <DrawCard />
           </div>
           <div
             className="learn-more"
             onClick={() => {
               setUnoPressed(true);
+              playSound('uno')
             }}
           >
             uno
