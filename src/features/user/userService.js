@@ -30,6 +30,7 @@ const createGuest = async (userData) => {
 const deleteUser = async (id) => {
     const response = await axios.delete(`${API_URL}del/${id}`);
     if (response.data) {
+        console.log('Dang remove Item');
         localStorage.removeItem('user')
     }
     return response.data;
