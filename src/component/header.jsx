@@ -11,7 +11,6 @@ function Header() {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    console.log('DAng logout...')
     if (user.isGuest) {
       dispatch(deleteUser());
     }
