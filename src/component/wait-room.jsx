@@ -129,23 +129,7 @@ const Game = () => {
       });
     }
   };
-
-  useEffect(() => {
-    console.log('Dang co winner');
-    new Audio(winnerSound).play();
-    if (winner) {
-      console.log('Co winner')
-      if (user._id === winner) {
-        console.log('Day la winner');
-        new Audio(winnerSound).play();
-      } else if (user.id !== winner) {
-        console.log('Day la loser');
-        new Audio(loseSound).play();
-      }
-    }
-  }, [winner]);
-
-
+  
   return (
     <>
       {users.find((user) => user._id === winner) && (
