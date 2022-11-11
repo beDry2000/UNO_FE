@@ -9,8 +9,9 @@ function Header() {
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  
+
   const handleLogout = () => {
+    console.log('DAng logout...')
     if (user.isGuest) {
       dispatch(deleteUser());
     }
