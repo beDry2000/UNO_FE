@@ -15,6 +15,7 @@ function Header() {
     if (user.isGuest) {
       dispatch(deleteUser());
     }
+    localStorage.removeItem('user')
     dispatch(resetGame());
     dispatch(logout());
     navigate("/");
@@ -35,7 +36,7 @@ function Header() {
             color="error"
             size="small"
             onClick={handleLogout}
-            // className="member-name"
+          // className="member-name"
           >
             đăng xuất
           </Button>
